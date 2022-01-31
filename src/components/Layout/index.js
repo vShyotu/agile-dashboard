@@ -13,7 +13,7 @@ const LeftPane = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #592941;
+  background-color: #0e131f;
 `;
 
 const RightPane = styled.div`
