@@ -1,5 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const BacklogContainer = styled.div`
   padding: 1rem;
@@ -33,14 +34,19 @@ const SecondaryButton = styled.button`
 `;
 
 const BacklogItem = ({ item }) => {
-  return <BacklogItemContainer>{item.name}</BacklogItemContainer>;
+  return <BacklogItemContainer>{item.title}</BacklogItemContainer>;
 };
 
 const BacklogTable = ({ items }) => {
+  const navigate = useNavigate();
+
+  const onAddItemClick = (e) => {
+    e.preventDefault();
+    navigate('/story/create');
+  };
   return (
     <BacklogContainer>
-      <PrimaryButton>Add Item</PrimaryButton>
-      <SecondaryButton>Remove Item</SecondaryButton>
+      <PrimaryButton onClick={onAddItemClick}>Create New Story</PrimaryButton>
       <div>
         {items.map((item) => (
           <BacklogItem item={item} key={item.id} />
